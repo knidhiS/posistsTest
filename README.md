@@ -1,4 +1,3 @@
-# posistsTest
 #include <stdio.h>
 void LCUtil(Node* root, int cl,int expected, int &res)
 {
@@ -110,20 +109,27 @@ struct node* newNode(int data)
 
 int search(int x, Node* root){
 	int val=x;
-        int flag;
+        
 	if (root == NULL)
         return 0;
         
-        for(int i=0;node != Null;i++){
+        else{
+		if(root->data == val) 
+        		return root; 
+    		else if(val < tree- > data) 
+        		return search(root->left, val); 
+    		else 
+        		return search(root->right, val);	
+	}
 }
 }
- 
- 
  
  
 int main()
 {
   int option,res;
+  option = 0;
+ while(option != 11){
   printf("\nPlease choose following options:\n");
 
   printf("1 = create the root node.\n");
@@ -131,8 +137,11 @@ int main()
   printf("4 = for encryting/decrypting the data.\n");
   printf("8 = longest chain of genesis node.\n");
   printf("9 = longst chain of any node.\n");
+  printf("11 = See u later bye bye");
+
   scanf("%d",&option);
-  switch(option){
+ 
+   switch(option){
 	case 1 :
 		newNode();
 		break;  
@@ -145,18 +154,20 @@ int main()
 		break; 
 
 	case 8 :
-		longest(root);
+		int res=longest(root);
 		printf("longest length from Genesis node is %d",res);
 		break; 
 	case 9 :
 		printf("node from which you wanna find the length");
 		int x;
-		search(x, root);
+		int root=search(x, root);
+		res=longest(root);
 		printf("longest length from  node is %d",res);
 		break; 
+		
 	default :
 		printf("wrong input ...compile again"); 
  
- }
+ }}
   return 0;
 }
